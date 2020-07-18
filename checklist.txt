@@ -18,6 +18,14 @@
     [x] set up router with POST and GET
     [x] set up postObject with state from each reducer
     [x] axios POST
-[]delete info from reducers when "Leave More feedback" is clicked
-    [] set up delete actions for all reducers
-    [] can we call all of them at once?  I think so! Let's find out!
+[x]delete info from reducers when "Leave More feedback" is clicked
+    [x] set up delete actions for all reducers
+    [x] can we call all of them at once?  I think so! Let's find out!
+[x]back buttons on each page:
+    [x]understanding
+    [x]support
+    [x]comments
+    [x]review
+[]install material ui and make a plan
+    []pretty inputs
+    []pretty 

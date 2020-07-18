@@ -44,6 +44,11 @@ class Review extends Component {
                     <li>Support: {this.props.reduxState.supportReducer}/5</li> 
                     <li>Comments: {this.props.reduxState.commentReducer}</li>
               </ul>
+              <br/>
+              <br/>
+              <Link to="/comments">
+                <button>Back</button>
+              </Link>
               <Link to="/success">
                   <button onClick = {this.submitFeedback}>Submit Feedback</button>
                 </Link>

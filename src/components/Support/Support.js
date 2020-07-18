@@ -23,6 +23,11 @@ class Support extends Component {
                     <option value="4">4</option>
                     <option value="5" defaultValue>5</option>
               </select>
+              <br/>
+              <br/>
+              <Link to="/understanding">
+                <button>Back</button>
+              </Link>
               <Link to="/comments">
                   <button onClick={this.setSupport}>Next</button>
               </Link>

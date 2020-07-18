@@ -23,6 +23,8 @@ class Feeling extends Component {
                     <option value="4">4</option>
                     <option value="5">5</option>
               </select>
+              <br></br>
+              <br/>
               <Link to="/understanding">
                   <button onClick={this.setFeeling}>Next</button>
               </Link>

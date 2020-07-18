@@ -25,6 +25,9 @@ setComment= () =>{
               onChange = {this.handleChange}></textarea>
               <br/>
               <br/>
+              <Link to="/support">
+                <button>Back</button>
+              </Link>
               <Link to="/review">
                   <button onClick={this.setComment}>Review Feedback</button>
               </Link>

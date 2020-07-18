@@ -23,6 +23,11 @@ class Understanding extends Component {
                     <option value="4">4</option>
                     <option value="5">5</option>
               </select>
+              <br/>
+              <br/>
+              <Link to="/feeling">
+                <button>Back</button>
+              </Link>
               <Link to="/support">
                   <button onClick={this.setUnderstanding}>Next</button>
               </Link>
