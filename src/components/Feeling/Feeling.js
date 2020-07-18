@@ -14,7 +14,7 @@ class Feeling extends Component {
     render() {
       return (
           <div>
-              <h3>How were you feeling today?</h3>
+              <h3>How are you feeling today?</h3>
               <select id="feeling" name="feeling"
               onChange={(e) => this.setState({feeling: e.target.value})}>
                     <option value="1">1</option>

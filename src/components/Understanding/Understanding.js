@@ -14,7 +14,7 @@ class Understanding extends Component {
     render() {
       return (
           <div>
-              <h3>How well are you understanding the material?</h3>
+              <h3>How well are you understanding the content?</h3>
               <select id="understanding" name="understanding"
               onChange={(e) => this.setState({understanding: e.target.value})}>
                     <option value="1">1</option>

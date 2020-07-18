@@ -14,7 +14,7 @@ class Support extends Component {
     render() {
       return (
           <div>
-              <h3>How well did you feel supported today?</h3>
+              <h3>How well are you feeling supported?</h3>
               {/* onChange calls an anonymous function to set state to target value so we can save it */}
               <select id="support" name="support" onChange={(e) => this.setState({support: e.target.value})}>
                     <option value="1">1</option>

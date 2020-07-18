@@ -38,7 +38,7 @@ class Review extends Component {
       return (
           <div>
               <h3>Review your feedback:</h3>
-              <ul className = 'reviewList'>
+              <ul className = "reviewList">
                     <li>Feeling: {this.props.reduxState.feelingReducer}/5</li>
                     <li>Understanding: {this.props.reduxState.understandingReducer}/5</li>
                     <li>Support: {this.props.reduxState.supportReducer}/5</li> 

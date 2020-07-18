@@ -14,10 +14,11 @@ class Feeling extends Component {
               <h3>Success!</h3>
               <p>Thank you for submitting your daily feedback!</p>
               {/* The button below will link us back to Form to
-               begin feedback survey again*/}
+               begin feedback survey again
             
+                -It will also reset the reduxState of all reducers*/}
               <Link to="/">
-                  <button  onClick ={this.resetFeedback}>Leave more feedback</button>
+                  <button  onClick ={this.resetFeedback}>Leave new feedback</button>
               </Link>
           </div>
         );//end return
