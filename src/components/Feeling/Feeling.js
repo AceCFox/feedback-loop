@@ -3,21 +3,32 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 class Feeling extends Component {
+
+    state = {feeling: null}
+
+    setFeeling= () =>{
+        console.log('setting support:', this.state.feeling)
+         this.props.dispatch({ type: 'SET_FEELING', payload: this.state.feeling })
+    }//end setFeeling
+
     render() {
       return (
           <div>
               <h3>How were you feeling today?</h3>
-              <select id="feeling" name="feeling">
+              <select id="feeling" name="feeling"
+              onChange={(e) => this.setState({feeling: e.target.value})}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5" selected>5</option>
+                    <option value="5">5</option>
               </select>
-              <Link to="/understanding"><button>Next</button></Link>
+              <Link to="/understanding">
+                  <button onClick={this.setFeeling}>Next</button>
+              </Link>
           </div>
         );//end return
     }//end render
  }//end class
   
-export default Feeling;
+export default connect()(Feeling);

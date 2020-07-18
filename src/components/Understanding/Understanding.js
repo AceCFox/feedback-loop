@@ -3,21 +3,32 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 class Understanding extends Component {
+
+    state ={understanding: null}
+
+    setUnderstanding= () =>{
+        console.log('setting understanding:', this.state.understanding)
+         this.props.dispatch({ type: 'SET_UNDERSTANDING', payload: this.state.understanding })
+    }//end setUnderstanding
+    
     render() {
       return (
           <div>
               <h3>How well are you understanding the material?</h3>
-              <select id="understanding" name="understanding">
+              <select id="understanding" name="understanding"
+              onChange={(e) => this.setState({understanding: e.target.value})}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5" selected>5</option>
+                    <option value="5">5</option>
               </select>
-              <Link to="/support"><button>Next</button></Link>
+              <Link to="/support">
+                  <button onClick={this.setUnderstanding}>Next</button>
+              </Link>
           </div>
         );//end return
     }//end render
 }//end class
   
-  export default Understanding;
+export default connect()(Understanding);
