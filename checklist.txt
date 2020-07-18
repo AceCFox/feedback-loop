@@ -1,11 +1,12 @@
-[]set up 6 components:
+[x]set up 6 components:
     -form
     -feeling
     -understanding
     -support
     -comments
     -review
-[]build react router for navigation between pages
+    -success
+[x]build react router for navigation between pages
 []build out reduxState with reducers that store each piece of feedback
 []build out each page with inputs record feedback and nav button to the next component
     []feeling

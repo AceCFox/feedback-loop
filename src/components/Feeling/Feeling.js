@@ -11,4 +11,4 @@ class Feeling extends Component {
     }//end render
  }//end class
   
-export default connect()(Feeling);
+export default Feeling;
