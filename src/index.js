@@ -11,28 +11,40 @@ const commentReducer = (state = '', action) => {
     if (action.type === 'SET_COMMENT'){ 
         return state = action.payload;
     }//end if
-    return state;
+    else if (action.type === 'RESET'){ 
+        return state = '';
+    }//end else if
+    else return state;
 };//end commentReduicer
 
 const feelingReducer = (state = null, action) => {
     if (action.type === 'SET_FEELING'){ 
         return state = action.payload;
     }//end if
-    return state;
+    else if (action.type === 'RESET'){ 
+        return state = null;
+    }//end else if
+    else return state;
 };//end feelingReduicer
 
 const supportReducer = (state = null, action) => {
     if (action.type === 'SET_SUPPORT'){ 
         return state = action.payload;
     }//end if
-    return state;
+    else if (action.type === 'RESET'){ 
+        return state = null;
+    }//end else if
+    else return state;
 };//end supportReducer
 
 const understandingReducer = (state = null, action) => {
     if (action.type === 'SET_UNDERSTANDING'){ 
         return state = action.payload;
     }//end if
-    return state;
+    else if (action.type === 'RESET'){ 
+        return state = null;
+    }//end else if
+    else return state;
 };//end understandingReducer
 
 

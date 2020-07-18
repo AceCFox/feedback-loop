@@ -20,7 +20,7 @@ setComment= () =>{
     render() {
       return (
           <div>
-              <h3>Do you have any comments you want to leave?</h3>
+              <h3>Any comments you want to leave?</h3>
               <textarea id="comments" rows = "8" cols = "20"
               onChange = {this.handleChange}></textarea>
               <br/>

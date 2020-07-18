@@ -39,9 +39,9 @@ class Review extends Component {
           <div>
               <h3>Review your feedback:</h3>
               <ul className = 'reviewList'>
-                    <li>Feelings: {this.props.reduxState.feelingReducer}</li>
-                    <li>Understanding {this.props.reduxState.understandingReducer}</li>
-                    <li>Support: {this.props.reduxState.supportReducer}</li> 
+                    <li>Feeling: {this.props.reduxState.feelingReducer}/5</li>
+                    <li>Understanding: {this.props.reduxState.understandingReducer}/5</li>
+                    <li>Support: {this.props.reduxState.supportReducer}/5</li> 
                     <li>Comments: {this.props.reduxState.commentReducer}</li>
               </ul>
               <Link to="/success">
