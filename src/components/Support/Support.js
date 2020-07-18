@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 class Support extends Component {
 
-    state ={support: null}
+    state ={support: 1}
 
     setSupport= () =>{
         console.log('setting support:', this.state.support)
@@ -32,4 +32,3 @@ class Support extends Component {
  }//end class
   
 export default connect()(Support);
-//export default Support;

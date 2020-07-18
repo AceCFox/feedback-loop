@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 class Feeling extends Component {
 
-    state = {feeling: null}
+    state = {feeling: 1}
 
     setFeeling= () =>{
         console.log('setting support:', this.state.feeling)

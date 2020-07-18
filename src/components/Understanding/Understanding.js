@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 class Understanding extends Component {
 
-    state ={understanding: null}
+    state ={understanding: 1}
 
     setUnderstanding= () =>{
         console.log('setting understanding:', this.state.understanding)
