@@ -7,11 +7,14 @@
     -review
     -success
 [x]build react router for navigation between pages
-[]build out reduxState with reducers that store each piece of feedback
-[]build out each page with inputs record feedback and nav button to the next component
+[x]build out reduxState with reducers that store each piece of feedback
+[x]build out each page with inputs record feedback and nav button to the next component
     []feeling
     []understanding
     []support
     []comments
-[]review displays the feeback from reducers with submit button
+[x]review displays the feeback from reducers with submit button
 []when submit button is clicked, submit all feedback
+    [] set up router with POST and GET
+    [] set up postObject with state from each reducer
+    []
