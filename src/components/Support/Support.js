@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 class Support extends Component {
 
-    state ={support: 1}
+    state ={support: 5}
 
     setSupport= () =>{
         console.log('setting support:', this.state.support)
@@ -16,13 +20,22 @@ class Support extends Component {
           <div>
               <h3>How well are you feeling supported?</h3>
               {/* onChange calls an anonymous function to set state to target value so we can save it */}
-              <select id="support" name="support" onChange={(e) => this.setState({support: e.target.value})}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5" defaultValue>5</option>
-              </select>
+              <h5><i>1 = worst, 5 = best</i></h5>
+              <FormControl required className='formControl'>
+              <Select
+                onChange={(e) => this.setState({support: e.target.value})}
+                id="understanding"
+                className='selectEmpty'
+                defaultValue = "5"
+              >
+                <MenuItem value="1">1</MenuItem>
+                <MenuItem value="2">2</MenuItem>
+                <MenuItem value="3">3</MenuItem>
+                <MenuItem value="4">4</MenuItem>
+                <MenuItem value="5">5</MenuItem>
+              </Select>
+              <FormHelperText>Required</FormHelperText>
+            </FormControl>
               <br/>
               <br/>
               <Link to="/understanding">

@@ -27,5 +27,6 @@
     [x]comments
     [x]review
 []install material ui and make a plan
-    []pretty inputs
-    []pretty 
+    []pretty inputs - selects and text field
+    []pretty buttons
+    []stepper
