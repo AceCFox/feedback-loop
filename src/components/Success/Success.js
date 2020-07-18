@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+//import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 class Feeling extends Component {
@@ -10,7 +10,7 @@ class Feeling extends Component {
               <p>Thank you for submitting your daily feedback!</p>
               {/* The button below will link us back to Form to
                begin feedback survey again*/}
-              <button><Link to="/">Leve more feedback</Link></button>
+              <Link to="/"><button>Leve more feedback</button></Link>
           </div>
         );//end return
     }//end render
