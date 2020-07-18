@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
+const pool = require('./modules/pool');
+
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for angular requests
@@ -28,6 +30,7 @@ app.post('/feedback', (req,res)=>{
     pool.query(queryString, [req.body.feeling, req.body.understanding, req.body.support, req.body.comments])
     .then((result) => {
         res.sendStatus(200);
+        console.log('successful POST');
     }).catch((error) => {
         console.log('Error POST /feedback', error);
         res.sendStatus(500);  

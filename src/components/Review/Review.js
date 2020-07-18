@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 class Review extends Component {
 
@@ -15,7 +16,21 @@ class Review extends Component {
         }//end postObject
 
         console.log(postObject)
-    }
+
+        //axios POST to save our feedback to the database
+
+        axios({
+            method: 'POST',
+            url: '/feedback',
+            data: postObject,
+        }).then((response)=>{
+            console.log('back from POST with', response)
+        }).catch((error)=>{
+            console.log('Post error:', error);
+            alert('Sorry, the server encountered an error while trying to post your feedback')
+        })//end axios
+
+    }//end submitFeedback
     
 
     render() {
