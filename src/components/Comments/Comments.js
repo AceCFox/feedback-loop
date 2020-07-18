@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class Comment extends Component {
    
@@ -21,15 +23,23 @@ setComment= () =>{
       return (
           <div>
               <h3>Any comments you want to leave?</h3>
-              <textarea id="comments" rows = "8" cols = "20"
-              onChange = {this.handleChange}></textarea>
+              <TextField
+                label="comments"
+                multiline
+                rowsMax="8"
+                onChange={this.handleChange}
+                margin="normal"
+                helperText="comments are optional"
+                variant="outlined"
+                />
+              
               <br/>
               <br/>
               <Link to="/support">
-                <button>Back</button>
+                <Button variant="contained">Back</Button>
               </Link>
               <Link to="/review">
-                  <button onClick={this.setComment}>Review Feedback</button>
+                  <Button variant="contained" color="primary" onClick={this.setComment}>Review Feedback</Button>
               </Link>
           </div>
         );//end return

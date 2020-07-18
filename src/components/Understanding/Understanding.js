@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import Button from '@material-ui/core/Button';
 
 class Understanding extends Component {
 
-    state ={understanding: 1}
+    state ={understanding: 5}
 
     setUnderstanding= () =>{
         console.log('setting understanding:', this.state.understanding)
@@ -15,21 +20,34 @@ class Understanding extends Component {
       return (
           <div>
               <h3>How well are you understanding the content?</h3>
-              <select id="understanding" name="understanding"
-              onChange={(e) => this.setState({understanding: e.target.value})}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-              </select>
+              <h5><i>1 = worst, 5 = best</i></h5>
+          <FormControl required className='formControl'>
+          <Select
+            onChange={(e) => this.setState({understanding: e.target.value})}
+            id="understanding"
+            className='selectEmpty'
+            defaultValue = "5"
+          >
+            <MenuItem value="1">1</MenuItem>
+            <MenuItem value="2">2</MenuItem>
+            <MenuItem value="3">3</MenuItem>
+            <MenuItem value="4">4</MenuItem>
+            <MenuItem value="5">5</MenuItem>
+          </Select>
+          <FormHelperText>Required</FormHelperText>
+        </FormControl>
               <br/>
               <br/>
               <Link to="/feeling">
-                <button>Back</button>
+                <Button variant = "contained">Back</Button>
               </Link>
               <Link to="/support">
-                  <button onClick={this.setUnderstanding}>Next</button>
+                  <Button 
+                    variant = "contained"
+                    color = "primary"
+                    onClick={this.setUnderstanding}>
+                        Next
+                  </Button>
               </Link>
           </div>
         );//end return
