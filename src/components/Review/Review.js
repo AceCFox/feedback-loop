@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
 
 class Review extends Component {
 
@@ -25,6 +26,7 @@ class Review extends Component {
             data: postObject,
         }).then((response)=>{
             console.log('back from POST with', response)
+            this.props.history.push('/success');
         }).catch((error)=>{
             console.log('Post error:', error);
             alert('Sorry, the server encountered an error while trying to post your feedback')
@@ -47,11 +49,14 @@ class Review extends Component {
               <br/>
               <br/>
               <Link to="/comments">
-                <button>Back</button>
+                <Button variant = "contained">Back</Button>
               </Link>
-              <Link to="/success">
-                  <button onClick = {this.submitFeedback}>Submit Feedback</button>
-                </Link>
+              <Button 
+                variant = "contained"
+                color = "primary" 
+                onClick = {this.submitFeedback}>
+                    Submit Feedback
+              </Button>
           </div>
         );//end return
     }//end render

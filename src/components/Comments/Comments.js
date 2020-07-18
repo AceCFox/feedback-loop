@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class Comment extends Component {
    
@@ -35,10 +36,10 @@ setComment= () =>{
               <br/>
               <br/>
               <Link to="/support">
-                <button>Back</button>
+                <Button variant="contained">Back</Button>
               </Link>
               <Link to="/review">
-                  <button onClick={this.setComment}>Review Feedback</button>
+                  <Button variant="contained" color="primary" onClick={this.setComment}>Review Feedback</Button>
               </Link>
           </div>
         );//end return

@@ -5,7 +5,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import Button from '@material-ui/core/Button';
 
 class Feeling extends Component {
 
@@ -35,20 +35,14 @@ class Feeling extends Component {
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
-              
-             {/*  <select id="feeling" name="feeling"
-              onChange={(e) => this.setState({feeling: e.target.value})}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-        </select> */}
-              
               <br/>
               <br/>
               <Link to="/understanding">
-                  <button onClick={this.setFeeling}>Next</button>
+                  <Button variant = "contained" 
+                          color = "primary"
+                          onClick={this.setFeeling}>
+                              Next
+                    </Button>
               </Link>
           </div>
         );//end return
