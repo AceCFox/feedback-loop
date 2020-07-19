@@ -47,7 +47,19 @@ app.put('/feedback/:id', (req,res)=>{
         console.log('error on PUT /feedback', error);
         res.sendStatus(500)
     })//end query
-})//endPUT
+})//end PUT
+
+app.delete('/feedback/:id', (req,res) =>{
+    console.log ('deleting', req.params.id);
+    const queryString = `DELETE from "feedback" where "id" = $1;`;
+    pool.query(queryString,[req.params.id]).then ((result)=>{
+        res.sendStatus(201);
+        console.log('successful DELETE');
+    }).catch((error)=>{
+        console.log('error on DELETE', error);
+        res.sendStatus(500);
+    })//end query
+})//end DELETE
 
 
 /** ---------- START SERVER ---------- **/

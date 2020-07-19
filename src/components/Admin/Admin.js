@@ -32,6 +32,16 @@ class Admin extends Component {
 
     handleDelete =(event) =>{
         console.log('deleting:', event.currentTarget.name)
+        //name is a string of the index, need to add 1 and change it to number
+        let id = Number(event.currentTarget.name) + 1;
+        axios.delete('/feedback/' + id)
+        .then((response)=>{
+            console.log('response from DELETE:', response);
+            this.getFeedback();
+        }).catch((error)=>{
+            alert('Can not delete from database at this time. See console for details.');
+            console.log('error on DELTE:', error);
+        })//end DELETE
     }//end handleDelete
 
     handleReport = (event) => {
