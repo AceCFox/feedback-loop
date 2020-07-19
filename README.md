@@ -11,7 +11,7 @@ To see the fully functional site, please visit: [Redux Feedback](https://redux-f
 ## Screen Shots
 
 ![User view - support](public/images/supportScrn.png)
-![Admin view - display feedback](public/images.adminScrn.png)
+![Admin view - display feedback](public/images/adminScrn.png)
 
 ### Prerequisites
 
