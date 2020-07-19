@@ -11,6 +11,14 @@ class Feeling extends Component {
 
     state = {feeling: 5}
 
+    componentDidMount(){
+        //if we are navigating back to this page, this will reflect our saved progress
+        if(this.props.reduxState.feelingReducer){
+            console.log('getting stored feeling', this.props.reduxState.feelingReducer);
+            this.setState({feeling: this.props.reduxState.feelingReducer})
+        }//end if
+    }//end didMount
+
     setFeeling= () =>{
         console.log('setting support:', this.state.feeling)
          this.props.dispatch({ type: 'SET_FEELING', payload: this.state.feeling })
@@ -25,7 +33,7 @@ class Feeling extends Component {
           <Select
             onChange={(e) => this.setState({feeling: e.target.value})}
             id="feeling"
-            defaultValue = "5"
+            value = {this.state.feeling}
           >
             <MenuItem value="1">1</MenuItem>
             <MenuItem value="2">2</MenuItem>
@@ -49,5 +57,5 @@ class Feeling extends Component {
     }//end render
  }//end class
   
- const putReduxStateOnProps = (reduxState) => ({ reduxState }) 
+const putReduxStateOnProps = (reduxState) => ({ reduxState }) 
 export default connect(putReduxStateOnProps)(Feeling);

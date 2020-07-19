@@ -8,6 +8,13 @@ class Comment extends Component {
    
 state = {comment: ''}
 
+componentDidMount(){
+    //if we are navigating back to this page, this will reflect our saved progress
+    if(this.props.reduxState.commentReducer){
+        this.setState({comment: this.props.reduxState.commentReducer})
+    }//end if
+}//end didMount
+
 handleChange = (event) =>{
    // console.log(event.target.value)
     this.setState({comment: event.target.value});
@@ -31,19 +38,26 @@ setComment= () =>{
                 margin="normal"
                 helperText="comments are optional"
                 variant="outlined"
+                value = {this.state.comment}
                 />
               
               <br/>
               <br/>
               <Link to="/support">
-                <Button variant="contained">Back</Button>
+                <Button variant="contained" onClick={this.setComment}>
+                    Back
+                </Button>
               </Link>
+              {'\u00A0'} {'\u00A0'} {'\u00A0'}
               <Link to="/review">
-                  <Button variant="contained" color="primary" onClick={this.setComment}>Review Feedback</Button>
+                  <Button variant="contained" color="primary" onClick={this.setComment}>
+                        Review Feedback
+                  </Button>
               </Link>
           </div>
         );//end return
     }//end render
 }//end class
   
-export default connect()(Comment);
+const putReduxStateOnProps = (reduxState) => ({ reduxState })
+export default connect(putReduxStateOnProps)(Comment);

@@ -53,6 +53,7 @@ class Review extends Component {
               <Link to="/comments">
                 <Button variant = "contained">Back</Button>
               </Link>
+              {'\u00A0'} {'\u00A0'} {'\u00A0'}
               <Button 
                 variant = "contained"
                 color = "primary" 

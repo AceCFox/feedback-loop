@@ -14,7 +14,8 @@ class Understanding extends Component {
     componentDidMount(){
         //if we are navigating back to this page, this will reflect our saved progress
         if(this.props.reduxState.understandingReducer){
-            this.setState({support: this.props.reduxState.understandingReducer})
+            console.log('getting stored understanding', this.props.reduxState.understandingReducer);
+            this.setState({understanding: this.props.reduxState.understandingReducer})
         }//end if
     }//end didMount
 
