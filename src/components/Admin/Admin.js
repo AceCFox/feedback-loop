@@ -8,6 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import axios from 'axios';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ReportIcon from '@material-ui/icons/Report';
+import FlagIcon from '@material-ui/icons/Flag'
 
 class Admin extends Component {
     state = {
@@ -16,6 +17,10 @@ class Admin extends Component {
 
     componentDidMount(){
         console.log('admin mounted');
+        this.getFeedback();
+    }//end componentDidMount
+
+    getFeedback = () => {
         axios.get('/feedback').then((response)=>{
             console.log(response.data)
             this.setState({feedback: response.data})
@@ -23,12 +28,31 @@ class Admin extends Component {
             console.log('error on GET:', error)
             alert('Can not get feedback from server at this time')
         })//end axios
-    }//end componentDidMount
+    }//end getFeedback
+
+    handleDelete =(event) =>{
+        console.log('deleting:', event.currentTarget.name)
+    }//end handleDelete
+
+    handleReport = (event) => {
+        console.log('reporting:', event.currentTarget.name) 
+        //the name is the index, we have to add 1 so we get the id
+        //id counts from 1, index counts from 0
+        let id = Number(event.currentTarget.name) + 1;
+        axios.put('/feedback/' + id)
+        .then((response)=>{
+            console.log('successful PUT response:', response);
+            this.getFeedback();
+        }).catch((error)=>{
+            alert('Can not update database at this time');
+            console.log('error on PUT', error);
+        })//end axios PUT
+    }//end handleReport
 
     render() {
       return (
           <div>
-              <h3>Admin portal: Feedback Results</h3>
+              <h3>Admin Portal Feedback Results</h3>
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -38,6 +62,7 @@ class Admin extends Component {
                             <TableCell>Comments</TableCell>
                             <TableCell>Delete</TableCell>
                             <TableCell>Flag</TableCell>
+                            <TableCell>Flagged?</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -47,8 +72,17 @@ class Admin extends Component {
                             <TableCell>{feedback.understanding}</TableCell>
                             <TableCell>{feedback.support}</TableCell>
                             <TableCell>{feedback.comments}</TableCell>
-                            <TableCell><Button><DeleteIcon /></Button></TableCell>
-                            <TableCell><Button color="secondary"><ReportIcon /></Button></TableCell>
+                            <TableCell>
+                                <Button size = "large" name ={index} onClick = {this.handleDelete}>
+                                    <DeleteIcon />
+                                </Button>
+                            </TableCell>
+                            <TableCell>
+                                <Button color="secondary" size = "large" name ={index} onClick = {this.handleReport}>
+                                    <ReportIcon />
+                                </Button>
+                            </TableCell>
+                            <TableCell>{feedback.flagged ? <p><FlagIcon /></p>: <p> </p> }</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

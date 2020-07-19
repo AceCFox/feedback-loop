@@ -14,7 +14,7 @@ app.use(express.static('build'));
 
 app.get('/feedback', (req, res) => {
     console.log('Getting all feedback');
-    const queryString = `SELECT * FROM "feedback"`;
+    const queryString = `SELECT * FROM "feedback" ORDER BY "id" ASC;`;
     pool.query(queryString).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
@@ -24,7 +24,7 @@ app.get('/feedback', (req, res) => {
 })//end get
 
 app.post('/feedback', (req,res)=>{
-    console.log('posting new feedback', req.body)
+    console.log('posting new feedback', req.body);
     const queryString = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
     VALUES ($1, $2, $3, $4);`
     pool.query(queryString, [req.body.feeling, req.body.understanding, req.body.support, req.body.comments])
@@ -36,6 +36,18 @@ app.post('/feedback', (req,res)=>{
         res.sendStatus(500);  
     });//end query
 })//end POST
+
+app.put('/feedback/:id', (req,res)=>{
+    console.log('flagging', req.params.id);
+    const queryString = `UPDATE "feedback" SET "flagged"=TRUE WHERE "id" = $1;`;
+    pool.query(queryString, [req.params.id]).then ((result) => {
+        res.sendStatus(200);
+        console.log('successful PUT')
+    }).catch((error)=>{
+        console.log('error on PUT /feedback', error);
+        res.sendStatus(500)
+    })//end query
+})//endPUT
 
 
 /** ---------- START SERVER ---------- **/

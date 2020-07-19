@@ -30,3 +30,6 @@
     [x]pretty inputs - selects and text field
     [x]pretty buttons
     []snackbar
+[]admin portal
+    []get feedback
+    []set up routers for PUT and delete
