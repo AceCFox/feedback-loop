@@ -49,4 +49,5 @@ class Feeling extends Component {
     }//end render
  }//end class
   
-export default connect()(Feeling);
+ const putReduxStateOnProps = (reduxState) => ({ reduxState }) 
+export default connect(putReduxStateOnProps)(Feeling);

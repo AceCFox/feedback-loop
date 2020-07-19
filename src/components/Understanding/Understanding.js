@@ -11,6 +11,13 @@ class Understanding extends Component {
 
     state ={understanding: 5}
 
+    componentDidMount(){
+        //if we are navigating back to this page, this will reflect our saved progress
+        if(this.props.reduxState.understandingReducer){
+            this.setState({support: this.props.reduxState.understandingReducer})
+        }//end if
+    }//end didMount
+
     setUnderstanding= () =>{
         console.log('setting understanding:', this.state.understanding)
          this.props.dispatch({ type: 'SET_UNDERSTANDING', payload: this.state.understanding })
@@ -22,11 +29,12 @@ class Understanding extends Component {
               <h3>How well are you understanding the content?</h3>
               <h5><i>1 = worst, 5 = best</i></h5>
           <FormControl required className='formControl'>
+          {/*this Select is a controlled input based on state*/}
           <Select
             onChange={(e) => this.setState({understanding: e.target.value})}
             id="understanding"
             className='selectEmpty'
-            defaultValue = "5"
+            value={this.state.understanding}
           >
             <MenuItem value="1">1</MenuItem>
             <MenuItem value="2">2</MenuItem>
@@ -39,8 +47,13 @@ class Understanding extends Component {
               <br/>
               <br/>
               <Link to="/feeling">
-                <Button variant = "contained">Back</Button>
+                <Button variant = "contained"
+                    onClick={this.setUnderstanding}>
+                        Back
+                </Button>
               </Link>
+              {/*the characters below are nonbreaking spaces*/}
+              {'\u00A0'} {'\u00A0'} {'\u00A0'}
               <Link to="/support">
                   <Button 
                     variant = "contained"
@@ -54,4 +67,5 @@ class Understanding extends Component {
     }//end render
 }//end class
   
-export default connect()(Understanding);
+const putReduxStateOnProps = (reduxState) => ({ reduxState })
+export default connect(putReduxStateOnProps)(Understanding);
