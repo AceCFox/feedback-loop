@@ -39,12 +39,12 @@ To see the fully functional site, please visit: [Redux Feedback](https://redux-f
 
 ## Built With
 
-React.js
-React-redux
-node.js
-express.js
-Material-UI
-PostgreSql
+ -  React.js
+ -  React-redux
+ -  node.js
+ -  express.js
+ -  Material-UI
+ -  PostgreSql
 
 ## Acknowledgement
-Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. Special thanks to Mary, dEv, and the Paxos cohort. Bird up!
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. Special thanks to Mary, dEv, and the Paxos cohort for all of the knowledge and encoutragement. Bird up!
