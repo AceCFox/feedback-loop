@@ -47,4 +47,4 @@ To see the fully functional site, please visit: [Redux Feedback](https://redux-f
  -  PostgreSql
 
 ## Acknowledgement
-Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. Special thanks to Mary, dEv, and the Paxos cohort for all of the knowledge and encoutragement. Bird up!
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. Special thanks to Mary, dEv, and the Paxos cohort for all of the knowledge and encouragement. Bird up!
