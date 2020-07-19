@@ -39,7 +39,7 @@ app.post('/feedback', (req,res)=>{
 
 app.put('/feedback/:id', (req,res)=>{
     console.log('flagging', req.params.id);
-    const queryString = `UPDATE "feedback" SET "flagged"=TRUE WHERE "id" = $1;`;
+    const queryString = `UPDATE "feedback" SET "flagged"= NOT "flagged" WHERE "id" = $1;`;
     pool.query(queryString, [req.params.id]).then ((result) => {
         res.sendStatus(200);
         console.log('successful PUT')
