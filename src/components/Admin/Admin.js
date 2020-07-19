@@ -9,10 +9,16 @@ import axios from 'axios';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ReportIcon from '@material-ui/icons/Report';
 import FlagIcon from '@material-ui/icons/Flag'
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 
 class Admin extends Component {
     state = {
-        feedback:[]
+        feedback:[],
+        open: false,
+        id: null,
     }//end state
 
     componentDidMount(){
@@ -23,18 +29,19 @@ class Admin extends Component {
     getFeedback = () => {
         axios.get('/feedback').then((response)=>{
             console.log(response.data)
-            this.setState({feedback: response.data})
+            this.setState({
+                feedback: response.data,
+                open: false,
+                id: null})
         }).catch((error)=>{
             console.log('error on GET:', error)
             alert('Can not get feedback from server at this time')
         })//end axios
     }//end getFeedback
 
-    handleDelete =(event) =>{
-        console.log('deleting:', event.currentTarget.name)
-        //name is a string of the index, need to add 1 and change it to number
-        let id = Number(event.currentTarget.name) + 1;
-        axios.delete('/feedback/' + id)
+    handleDelete =() =>{
+        this.handleClose();
+        axios.delete('/feedback/' + this.state.id)
         .then((response)=>{
             console.log('response from DELETE:', response);
             this.getFeedback();
@@ -46,9 +53,7 @@ class Admin extends Component {
 
     handleReport = (event) => {
         console.log('reporting:', event.currentTarget.name) 
-        //the name is the index, we have to add 1 so we get the id
-        //id counts from 1, index counts from 0
-        let id = Number(event.currentTarget.name) + 1;
+        let id = event.currentTarget.name;
         axios.put('/feedback/' + id)
         .then((response)=>{
             console.log('successful PUT response:', response);
@@ -58,6 +63,27 @@ class Admin extends Component {
             console.log('error on PUT', error);
         })//end axios PUT
     }//end handleReport
+
+    handleClickOpen = (event) => {
+        console.log('deleting:', event.currentTarget.name)
+        let id = event.currentTarget.name;
+        // I'm capturing the id in state since I won't be able to target the original button
+        // from the dialogue.  The open/closed part of state is for the Dialogue
+        this.setState({ 
+            ...this.state.feedback,
+            open: true,
+            id: id,
+         });
+    };//end handleClickOpen
+    
+    handleClose = () => {
+    this.setState({ 
+        ...this.state.feedback,
+        ...this.state.id,
+        open: false });
+    };
+
+
 
     render() {
       return (
@@ -83,12 +109,12 @@ class Admin extends Component {
                             <TableCell>{feedback.support}</TableCell>
                             <TableCell>{feedback.comments}</TableCell>
                             <TableCell>
-                                <Button size = "large" name ={index} onClick = {this.handleDelete}>
+                                <Button size = "large" name ={feedback.id} onClick = {this.handleClickOpen}>
                                     <DeleteIcon />
                                 </Button>
                             </TableCell>
                             <TableCell>
-                                <Button color="secondary" size = "large" name ={index} onClick = {this.handleReport}>
+                                <Button color="secondary" size = "large" name ={feedback.id} onClick = {this.handleReport}>
                                     <ReportIcon />
                                 </Button>
                             </TableCell>
@@ -97,6 +123,23 @@ class Admin extends Component {
                         ))}
                     </TableBody>
                 </Table>
+                <Dialog
+                    open={this.state.open}
+                    onClose={this.handleClose}>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            Are you sure you want to delete that feedback from the database forever?
+                        </DialogContentText>
+                        </DialogContent>
+                <DialogActions>
+                    <Button onClick={this.handleClose} color="primary">
+                    no, save this!
+                    </Button>
+                    <Button onClick={this.handleDelete} color="primary" autoFocus>
+                    Yes, delete this feedback!
+                    </Button>
+                </DialogActions>
+             </Dialog>
           </div>
         );//end return
     }//end render
