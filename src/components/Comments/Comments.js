@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 class Comment extends Component {
    
@@ -45,6 +47,7 @@ setComment= () =>{
               <br/>
               <Link to="/support">
                 <Button variant="contained" onClick={this.setComment}>
+                    <NavigateBeforeIcon/>
                     Back
                 </Button>
               </Link>
@@ -52,6 +55,7 @@ setComment= () =>{
               <Link to="/review">
                   <Button variant="contained" color="primary" onClick={this.setComment}>
                         Review Feedback
+                        <NavigateNextIcon/>
                   </Button>
               </Link>
           </div>

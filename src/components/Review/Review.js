@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import DoneAllIcon from '@material-ui/icons/DoneAll';
 
 
 class Review extends Component {
@@ -51,7 +53,10 @@ class Review extends Component {
               <br/>
               <br/>
               <Link to="/comments">
-                <Button variant = "contained">Back</Button>
+                <Button variant = "contained">
+                    <NavigateBeforeIcon/>
+                    Back
+                </Button>
               </Link>
               {'\u00A0'} {'\u00A0'} {'\u00A0'}
               <Button 
@@ -59,6 +64,7 @@ class Review extends Component {
                 color = "primary" 
                 onClick = {this.submitFeedback}>
                     Submit Feedback
+                    <DoneAllIcon/>
               </Button>
           </div>
         );//end return

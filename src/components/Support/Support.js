@@ -6,6 +6,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 class Support extends Component {
 
@@ -49,6 +51,7 @@ class Support extends Component {
               <br/>
               <Link to="/understanding">
                 <Button variant = "contained" onClick={this.setSupport}>
+                    <NavigateBeforeIcon/>
                     Back
                 </Button>
               </Link>
@@ -58,6 +61,7 @@ class Support extends Component {
                   <Button variant="contained" color="primary" 
                     onClick={this.setSupport}>
                         Next
+                        <NavigateNextIcon/>
                    </Button>
               </Link>
           </div>
