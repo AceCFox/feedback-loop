@@ -9,16 +9,23 @@ import Comment from '../Comments/Comments';
 import Review from '../Review/Review';
 import Success from '../Success/Success';
 import Admin from '../Admin/Admin'
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <AppBar position="static" color="primary">
+        <Toolbar><h1 className="App-title">Feedback Survey</h1>
+        {'\u00A0'} {'\u00A0'} {'\u00A0'}
+          <h4><i>Don't forget your daily feedback</i></h4></Toolbar>
+        </AppBar>
+        {/* <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
         </header>
-        <br/>
+        <br/> */}
         <Router>
           <Route exact path="/" component={Form} />
           <Route path ="/feeling" component={Feeling}/>

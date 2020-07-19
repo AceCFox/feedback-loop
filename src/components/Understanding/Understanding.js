@@ -8,6 +8,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
+import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
+import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
+import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
+import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 
 class Understanding extends Component {
 
@@ -30,7 +35,7 @@ class Understanding extends Component {
       return (
           <div>
               <h3>How well are you understanding the content?</h3>
-              <h5><i>1 = worst, 5 = best</i></h5>
+              <br/>
           <FormControl required className='formControl'>
           {/*this Select is a controlled input based on state*/}
           <Select
@@ -39,14 +44,15 @@ class Understanding extends Component {
             className='selectEmpty'
             value={this.state.understanding}
           >
-            <MenuItem value="1">1</MenuItem>
-            <MenuItem value="2">2</MenuItem>
-            <MenuItem value="3">3</MenuItem>
-            <MenuItem value="4">4</MenuItem>
-            <MenuItem value="5">5</MenuItem>
+          <MenuItem value={1}>1 <SentimentVeryDissatisfiedIcon/></MenuItem>
+          <MenuItem value={2}>2<SentimentDissatisfiedIcon/></MenuItem>
+          <MenuItem value={3}>3<SentimentSatisfiedIcon/></MenuItem>
+          <MenuItem value={4}>4<SentimentSatisfiedAltIcon/></MenuItem>
+          <MenuItem value={5}>5<SentimentVerySatisfiedIcon/></MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
+              <br/>
               <br/>
               <br/>
               <Link to="/feeling">

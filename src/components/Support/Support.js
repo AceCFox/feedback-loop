@@ -8,6 +8,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
+import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
+import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
+import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
+import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 
 class Support extends Component {
 
@@ -29,7 +34,7 @@ class Support extends Component {
       return (
           <div>
               <h3>How well are you feeling supported?</h3>
-              <h5><i>1 = worst, 5 = best</i></h5>
+              <br/>
               <FormControl required className='formControl'>
                 {/* onChange  below calls an anonymous function to set state 
                 to target value so we can save it */}
@@ -39,14 +44,15 @@ class Support extends Component {
                     className='selectEmpty'
                     value = {this.state.support}
                 >
-                    <MenuItem value={1}>1</MenuItem>
-                    <MenuItem value={2}>2</MenuItem>
-                    <MenuItem value={3}>3</MenuItem>
-                    <MenuItem value={4}>4</MenuItem>
-                    <MenuItem value={5}>5</MenuItem>
+                    <MenuItem value={1}>1 <SentimentVeryDissatisfiedIcon/></MenuItem>
+                    <MenuItem value={2}>2<SentimentDissatisfiedIcon/></MenuItem>
+                    <MenuItem value={3}>3<SentimentSatisfiedIcon/></MenuItem>
+                    <MenuItem value={4}>4<SentimentSatisfiedAltIcon/></MenuItem>
+                    <MenuItem value={5}>5<SentimentVerySatisfiedIcon/></MenuItem>
                 </Select>
               <FormHelperText>Required</FormHelperText>
               </FormControl>
+              <br/>
               <br/>
               <br/>
               <Link to="/understanding">
