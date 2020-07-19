@@ -13,10 +13,12 @@ import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied'
 import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
+//import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import NotInterestedIcon from '@material-ui/icons/NotInterested';
 
 class Understanding extends Component {
 
-    state ={understanding: 5}
+    state ={understanding: ''}
 
     componentDidMount(){
         //if we are navigating back to this page, this will reflect our saved progress
@@ -44,11 +46,11 @@ class Understanding extends Component {
             className='selectEmpty'
             value={this.state.understanding}
           >
-          <MenuItem value={1}>1 <SentimentVeryDissatisfiedIcon/></MenuItem>
-          <MenuItem value={2}>2<SentimentDissatisfiedIcon/></MenuItem>
-          <MenuItem value={3}>3<SentimentSatisfiedIcon/></MenuItem>
-          <MenuItem value={4}>4<SentimentSatisfiedAltIcon/></MenuItem>
-          <MenuItem value={5}>5<SentimentVerySatisfiedIcon/></MenuItem>
+            <MenuItem value={1}>1 <SentimentVeryDissatisfiedIcon/></MenuItem>
+            <MenuItem value={2}>2<SentimentDissatisfiedIcon/></MenuItem>
+            <MenuItem value={3}>3<SentimentSatisfiedIcon/></MenuItem>
+            <MenuItem value={4}>4<SentimentSatisfiedAltIcon/></MenuItem>
+            <MenuItem value={5}>5<SentimentVerySatisfiedIcon/></MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
@@ -64,6 +66,7 @@ class Understanding extends Component {
               </Link>
               {/*the characters below are nonbreaking spaces*/}
               {'\u00A0'} {'\u00A0'} {'\u00A0'}
+              {(this.state.understanding) ?
               <Link to="/support">
                   <Button 
                     variant = "contained"
@@ -73,6 +76,12 @@ class Understanding extends Component {
                         <NavigateNextIcon/>
                   </Button>
               </Link>
+              : 
+              <Button variant="contained" color="secondary" disabled >
+                  Next
+                  <NotInterestedIcon/>
+               </Button>
+               }
           </div>
         );//end return
     }//end render

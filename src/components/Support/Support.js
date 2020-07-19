@@ -13,10 +13,11 @@ import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied'
 import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
+import NotInterestedIcon from '@material-ui/icons/NotInterested';
 
 class Support extends Component {
 
-    state ={support: 5}
+    state ={support: ''}
 
     componentDidMount(){
         //if we are navigating back to this page, this will reflect our saved progress
@@ -63,6 +64,7 @@ class Support extends Component {
               </Link>
               {/*the characters below are nonbreaking spaces*/}
               {'\u00A0'} {'\u00A0'} {'\u00A0'}
+              {(this.state.support) ?
               <Link to="/comments">
                   <Button variant="contained" color="primary" 
                     onClick={this.setSupport}>
@@ -70,6 +72,12 @@ class Support extends Component {
                         <NavigateNextIcon/>
                    </Button>
               </Link>
+               : 
+               <Button variant="contained" color="secondary" disabled >
+                   Next
+                   <NotInterestedIcon/>
+                </Button>
+                }
           </div>
         );//end return
     }//end render

@@ -13,10 +13,12 @@ import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 
+import NotInterestedIcon from '@material-ui/icons/NotInterested';
+
 
 class Feeling extends Component {
 
-    state = {feeling: 5}
+    state = {feeling: ''}
 
     componentDidMount(){
         //if we are navigating back to this page, this will reflect our saved progress
@@ -42,17 +44,18 @@ class Feeling extends Component {
             id="feeling"
             value = {this.state.feeling}
           >
-          <MenuItem value={1}>1 <SentimentVeryDissatisfiedIcon/></MenuItem>
-          <MenuItem value={2}>2<SentimentDissatisfiedIcon/></MenuItem>
-          <MenuItem value={3}>3<SentimentSatisfiedIcon/></MenuItem>
-          <MenuItem value={4}>4<SentimentSatisfiedAltIcon/></MenuItem>
-          <MenuItem value={5}>5<SentimentVerySatisfiedIcon/></MenuItem>
-          </Select>
-          <FormHelperText>Required</FormHelperText>
+            <MenuItem value={1}>1 <SentimentVeryDissatisfiedIcon/></MenuItem>
+            <MenuItem value={2}>2<SentimentDissatisfiedIcon/></MenuItem>
+            <MenuItem value={3}>3<SentimentSatisfiedIcon/></MenuItem>
+            <MenuItem value={4}>4<SentimentSatisfiedAltIcon/></MenuItem>
+            <MenuItem value={5}>5<SentimentVerySatisfiedIcon/></MenuItem>
+            </Select>
+            <FormHelperText>Required</FormHelperText>
         </FormControl>
               <br/>
               <br/>
               <br/>
+              {(this.state.feeling) ?
               <Link to="/understanding">
                   <Button variant = "contained" 
                           color = "primary"
@@ -61,6 +64,12 @@ class Feeling extends Component {
                               <NavigateNextIcon/>
                     </Button>
               </Link>
+              : 
+              <Button variant="contained" color="secondary" disabled >
+                  Next
+                  <NotInterestedIcon/>
+               </Button>
+               }
           </div>
         );//end return
     }//end render
