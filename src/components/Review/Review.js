@@ -5,7 +5,8 @@ import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
-
+import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
+import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 
 class Review extends Component {
     
@@ -44,10 +45,11 @@ class Review extends Component {
       return (
           <div>
               <h3>Review your feedback:</h3>
+              <h3><i>1:<SentimentVeryDissatisfiedIcon/>...  5: <SentimentVerySatisfiedIcon/></i></h3>
               <ul className = "reviewList">
-                    <li>Feeling: {this.props.reduxState.feelingReducer}/5</li>
-                    <li>Understanding: {this.props.reduxState.understandingReducer}/5</li>
-                    <li>Support: {this.props.reduxState.supportReducer}/5</li> 
+                    <li>Feeling: {this.props.reduxState.feelingReducer}</li>
+                    <li>Understanding: {this.props.reduxState.understandingReducer}</li>
+                    <li>Support: {this.props.reduxState.supportReducer}</li> 
                     <li>Comments: {this.props.reduxState.commentReducer}</li>
               </ul>
               <br/>

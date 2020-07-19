@@ -14,7 +14,7 @@ app.use(express.static('build'));
 
 app.get('/feedback', (req, res) => {
     console.log('Getting all feedback');
-    const queryString = `SELECT * FROM "feedback" ORDER BY "id" ASC;`;
+    const queryString = `SELECT * FROM "feedback" ORDER BY "id" DESC;`;
     pool.query(queryString).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
